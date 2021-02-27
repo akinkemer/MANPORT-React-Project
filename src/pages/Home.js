@@ -9,7 +9,7 @@ import { BiLink } from "react-icons/bi";
 export default function Home() {
   return (
     <div className="container text-center">
-      <div className="row mb-3">
+      <div className="row mb-4">
         <div className="col-md-4 grow">
           <Link to="/monitoring-dashboard" type="button" className="btn btn-block shadow my-2 py-5 px-2 h-100">
             <AiOutlineFundProjectionScreen size="8em" />
