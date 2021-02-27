@@ -1,11 +1,15 @@
-{app.countries.map((country) => {
-    let colSize;
+import React, { Component } from "react";
 
-    if (app.countries.length > 4) colSize = 2;
-    else colSize = 12 / app.countries.length;
+export default class Country extends Component {
+  render() {
+    const { app } = this.props;
 
-    const countryStyle = `col-${colSize} border rounded bg-light text-center mx-auto`;
-    return (
-      <div className={countryStyle}>{country.name}</div>
-    );
-  })}
+    return app.countries.map((country) => {
+      return (
+        <div className="col border rounded bg-light text-center">
+          {country.name}
+        </div>
+      );
+    });
+  }
+}

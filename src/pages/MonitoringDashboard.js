@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Application from "../component/Application";
-
+import LastIssues from "../component/LastIssues";
 
 class MonitoringDashboard extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class MonitoringDashboard extends Component {
           id: "a",
           name: "FLR",
           countries: [
-            { name: "Turkey" },
+            { name: "Turkey", prod: [{ name: "PROD-1" }, { name: "PROD-2" }] },
             { name: "Russia" },
             { name: "Germany" },
             { name: "England" },
@@ -59,24 +59,6 @@ class MonitoringDashboard extends Component {
             { name: "Germany" },
           ],
         },
-        {
-          id: "g",
-          name: "UTP",
-          countries: [
-            { name: "Turkey" },
-            { name: "Russia" },
-            { name: "Germany" },
-          ],
-        },
-        {
-          id: "h",
-          name: "URM",
-          countries: [
-            { name: "Turkey" },
-            { name: "Russia" },
-            { name: "Germany" },
-          ],
-        },
       ],
     };
   }
@@ -84,13 +66,19 @@ class MonitoringDashboard extends Component {
   render() {
     return (
       <div className="container">
+        <div className="row my-2">
+          <div className="col-md-6 text-center">
+            <h2 className="display-4">MONITORING DASHBOARD</h2>
+          </div>
+          <div className="col-md-6">
+            <LastIssues />
+          </div>
+        </div>
         <div className="row">
           {this.state.apps.map((app) => {
             const colSize = 2 * app.countries.length;
-            const appStyle = `col-md-${colSize} mx-auto`;
-            return (
-              <Application appStyle={appStyle} app={app}/>
-            );
+            const appStyle = `col-md-${colSize}`;
+            return <Application appStyle={appStyle} app={app} />;
           })}
         </div>
       </div>
