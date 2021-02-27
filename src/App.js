@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NotFoundError from "./pages/NotFoundError";
+import Home from "./pages/Home";
+import MonitoringDashboard from "./pages/MonitoringDashboard";
+import ApplicationManagement from "./pages/ApplicationManagement";
+import LoggedIssues from "./pages/LoggedIssues";
+import QuickLinks from "./pages/QuickLinks";
+import Login from "./pages/Login";
+
+import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
+
+import React, { Component } from 'react'
+
+class App extends Component {
+  render() {
+    let authed = true;
+    return (
+      <Router>
+        <Navbar isUserAuthed={authed} />
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <PrivateRoute authed={authed} path="/home" component={Home} />
+          <PrivateRoute authed={authed} path="/monitoring-dashboard" component={MonitoringDashboard} />
+          <PrivateRoute authed={authed} path="/application-management" component={ApplicationManagement} />
+          <PrivateRoute authed={authed} path="/logged-issues" component={LoggedIssues} />
+          <PrivateRoute authed={authed} path="/quick-links" component={QuickLinks} />
+          <Route component={NotFoundError} />
+        </Switch>
+        <Footer />
+      </Router>
+    )
+  }
 }
+function PrivateRoute ({component: Component, authed, ...rest}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => authed === true
+        ? <Component {...props} />
+        : <Redirect to={{pathname: '/', state: {from: props.location}}} />}
+    />
+  )
+}
+
 
 export default App;
