@@ -19,14 +19,14 @@ class Application extends Component {
     return (
       <div className={appStyle}>
         <div id={app.id}>
-          <div class="card">
+          <div className="card">
             <a
               className="card-link"
               data-toggle="collapse"
               onClick={this.changeVisibility}
               href={"#" + app.id + app.name}
             >
-              <div class="card-header text-dark">
+              <div className="card-header text-dark">
                 <ul className="nav justify-content-between">
                   <li className="nav-item font-weight-bold">{app.name}</li>
                   <li className="nav-item">
@@ -42,12 +42,14 @@ class Application extends Component {
 
             <div
               id={app.id + app.name}
-              class="collapse hide"
+              className="collapse hide"
               data-parent={"#" + app.id}
             >
-              <div class="card-body">
-                <div class="row">
-                  <Country app={app} />
+              <div className="card-body">
+                <div className="row">
+                  {app.countries.map((country) => {
+                    return <Country key={country.id} country={country} />;
+                  })}
                 </div>
               </div>
             </div>
