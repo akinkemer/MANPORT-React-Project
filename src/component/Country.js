@@ -1,11 +1,22 @@
-{app.countries.map((country) => {
-    let colSize;
+import React, { Component } from "react";
+import Production from "./Production";
 
-    if (app.countries.length > 4) colSize = 2;
-    else colSize = 12 / app.countries.length;
-
-    const countryStyle = `col-${colSize} border rounded bg-light text-center mx-auto`;
+export default class Country extends Component {
+  render() {
+    const { country } = this.props;
     return (
-      <div className={countryStyle}>{country.name}</div>
+      <div className="col">
+        <div
+          key={country.id}
+          className="col border rounded bg-light text-center font-weight-bold"
+        >
+          {country.name}
+        </div>
+        {country.prod &&
+          country.prod.map((production) => {
+            return <Production key={production.id} production={production} />;
+          })}
+      </div>
     );
-  })}
+  }
+}
