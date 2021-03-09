@@ -21,11 +21,11 @@ class App extends Component {
         <Navbar isUserAuthed={authed} />
         <Switch>
           <Route exact path="/" component={Login} />
-          <PrivateRoute authed={authed} path="/home" component={Home} />
-          <PrivateRoute authed={authed} path="/monitoring-dashboard" component={MonitoringDashboard} />
-          <PrivateRoute authed={authed} path="/application-management" component={ApplicationManagement} />
-          <PrivateRoute authed={authed} path="/logged-issues" component={LoggedIssues} />
-          <PrivateRoute authed={authed} path="/quick-links" component={QuickLinks} />
+          <PrivateRoute authed={authed} exact path="/home" component={Home} />
+          <PrivateRoute authed={authed} exact path="/monitoring-dashboard" component={MonitoringDashboard} />
+          <PrivateRoute authed={authed} exact path="/application-management" component={ApplicationManagement} />
+          <PrivateRoute authed={authed} exact path="/logged-issues" component={LoggedIssues} />
+          <PrivateRoute authed={authed} exact path="/quick-links" component={QuickLinks} />
           <Route component={NotFoundError} />
         </Switch>
         <Footer />

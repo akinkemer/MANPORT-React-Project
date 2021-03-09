@@ -12,7 +12,7 @@ class MonitoringDashboard extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-6 text-center">
-                  <h2 className="display-4">MONITORING DASHBOARD</h2>
+                  <h4 className="display-4">MONITORING DASHBOARD</h4>
                 </div>
                 <div className="col-md-6">
                   <LastIssues />

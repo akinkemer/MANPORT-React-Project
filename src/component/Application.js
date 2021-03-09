@@ -16,17 +16,18 @@ class Application extends Component {
 
   render() {
     const { appStyle, app } = this.props;
+    const color="success"
     return (
       <div className={appStyle}>
         <div id={app.id}>
-          <div className="card">
+          <div className="card border-0">
             <a
               className="card-link"
               data-toggle="collapse"
               onClick={this.changeVisibility}
               href={"#" + app.id + app.name}
             >
-              <div className="card-header text-dark">
+              <div className={`btn btn-outline-${color} btn-block`}>
                 <ul className="nav justify-content-between">
                   <li className="nav-item font-weight-bold">{app.name}</li>
                   <li className="nav-item">
@@ -45,7 +46,7 @@ class Application extends Component {
               className="collapse hide"
               data-parent={"#" + app.id}
             >
-              <div className="card-body">
+              <div className={`card-body border border-${color}`}>
                 <div className="row">
                   {app.countries.map((country) => {
                     return <Country key={country.id} country={country} />;

@@ -4,7 +4,7 @@ class ApplicationManagement extends Component {
     render() {
         return (
             <div className="container">
-                <h1>ApplicationManagement</h1>
+                <h3>ApplicationManagement</h3>
             </div>
         )
     }
