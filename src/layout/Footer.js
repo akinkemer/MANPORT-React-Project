@@ -8,7 +8,7 @@ function Footer() {
         <div className="row">
           <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h5 className="text-uppercase">MANPORT</h5>
-            <br/>
+            <br />
             <h6>MANUFACTURING </h6>
             <h6>&</h6>
             <h6>QUALITY SYSTEMS PORTAL</h6>
@@ -17,17 +17,23 @@ function Footer() {
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 className="text-uppercase">Links</h5>
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="/home" className="nav-link">
+              <li className="nav-item pb-2">
+                <Link to="/home">
                   Home
                 </Link>
-                <Link to="/monitoring-dashboard" className="nav-link">
+              </li>
+              <li className="nav-item pb-2">
+                <Link to="/monitoring-dashboard">
                   Monitoring Dashboard
                 </Link>
-                <Link to="/application-management" className="nav-link">
+              </li>
+              <li className="nav-item pb-2">
+                <Link to="/application-management">
                   Application Management
                 </Link>
-                <Link to="/logged-issues" className="nav-link">
+              </li>
+              <li className="nav-item pb-2">
+                <Link to="/logged-issues">
                   Logged Issues
                 </Link>
               </li>
@@ -37,9 +43,9 @@ function Footer() {
             className="col-12 text-center p-3 mt-2"
             style={{ backgroundColor: "rgba(0,0,0,0.1)" }}
           >
-            © 2021 Copyright:
+            © {new Date().getFullYear()} Copyright:
             <Link to="/home" className="text-dark">
-              MANPORT
+              <span>MANPORT</span>
             </Link>
           </div>
         </div>

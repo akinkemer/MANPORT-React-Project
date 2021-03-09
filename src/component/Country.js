@@ -5,7 +5,7 @@ export default class Country extends Component {
   render() {
     const { country } = this.props;
     return (
-      <div className="col">
+      <div className="col m-2 mb-3">
         <div
           key={country.id}
           className="col border rounded bg-light text-center font-weight-bold"

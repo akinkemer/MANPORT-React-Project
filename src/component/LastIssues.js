@@ -5,9 +5,9 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 export default function LastIssues() {
   return (
     <div className="card border rounded shadow mb-3">
-      <div className="card-header">Last Issues</div>
+      <div className="card-header py-2">Last Issues</div>
 
-      <div className="card-body">
+      <div className="card-body py-2">
         <div className="d-inline-flex">
           <h6 className="p-1 text-monospace my-auto">27.02.2021 15:30</h6>
           <IoIosArrowRoundForward className="my-auto mx-0" size="2em" />
