@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../styles/home.css";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
 import Country from "./Country";
@@ -16,16 +17,20 @@ class Application extends Component {
 
   render() {
     const { appStyle, app } = this.props;
-    const color="success"
+    const color = "success";
+
+    const headerId = "headerId"+app.id;
+    const dataId = "dataId"+app.name+app.id;
+
     return (
       <div className={appStyle}>
-        <div id={app.id}>
+        <div id={headerId}>
           <div className="card border-0">
             <a
               className="card-link"
               data-toggle="collapse"
               onClick={this.changeVisibility}
-              href={"#" + app.id + app.name}
+              href={`#${dataId}`}
             >
               <div className={`btn btn-outline-${color} btn-block`}>
                 <ul className="nav justify-content-between">
@@ -42,15 +47,16 @@ class Application extends Component {
             </a>
 
             <div
-              id={app.id + app.name}
+              id={dataId}
               className="collapse hide"
-              data-parent={"#" + app.id}
+              data-parent={`#${headerId}`}
             >
               <div className={`card-body border border-${color}`}>
                 <div className="row">
-                  {app.countries.map((country) => {
-                    return <Country key={country.id} country={country} />;
-                  })}
+                  {app.countries &&
+                    app.countries.map((country) => {
+                      return <Country key={country.id} country={country} />;
+                    })}
                 </div>
               </div>
             </div>

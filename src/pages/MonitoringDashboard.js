@@ -19,11 +19,14 @@ class MonitoringDashboard extends Component {
                 </div>
               </div>
               <div className="row">
-                {apps.map((app) => {
-                  const colSize = 2 * app.countries.length;
-                  const appStyle = `col-md-${colSize}`;
-                  return <Application key={app.id} appStyle={appStyle} app={app} />;
-                })}
+                {apps &&
+                  apps.map((app) => {
+                    const colSize = 2 * app.countries.length;
+                    const appStyle = `col-md-${colSize}`;
+                    return (
+                      <Application key={app.id} appStyle={appStyle} app={app} />
+                    );
+                  })}
               </div>
             </div>
           );

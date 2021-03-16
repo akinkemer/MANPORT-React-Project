@@ -12,8 +12,8 @@ export default class Country extends Component {
         >
           {country.name}
         </div>
-        {country.prod &&
-          country.prod.map((production) => {
+        {country.productions &&
+          country.productions.map((production) => {
             return <Production key={production.id} production={production} />;
           })}
       </div>
