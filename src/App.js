@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
 
 import React, { Component } from 'react'
+import { AnimatePresence } from "framer-motion";
 
 class App extends Component {
   render() {
@@ -19,7 +20,8 @@ class App extends Component {
     return (
       <Router>
         <Navbar isUserAuthed={authed} />
-        <Switch>
+        <AnimatePresence exitBeforeEnter>
+          <Switch>
           <Route exact path="/" component={Login} />
           <PrivateRoute authed={authed} exact path="/home" component={Home} />
           <PrivateRoute authed={authed} exact path="/monitoring-dashboard" component={MonitoringDashboard} />
@@ -28,6 +30,7 @@ class App extends Component {
           <PrivateRoute authed={authed} exact path="/quick-links" component={QuickLinks} />
           <Route component={NotFoundError} />
         </Switch>
+        </AnimatePresence>
         <Footer />
       </Router>
     )

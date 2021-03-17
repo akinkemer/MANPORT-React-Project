@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import calculateImpactColor from "../util/ImpactColorCalculator";
 import axiosInstance,{ applications } from "../api/RestPathVariables";
 
 const AppContext = React.createContext();
@@ -28,16 +29,25 @@ const reducer = (state, action) => {
 };
 
 export class AppProvider extends Component {
+  interval = null;
   state = {
     dispatch: (action) => {
       this.setState((state) => reducer(state, action));
     },
   };
   componentDidMount = async () => {
+    this.interval = setInterval(this.getData, 5*1000);
+    await this.getData();
+  }
+  getData =async () => {
     const response = await axiosInstance.get(applications);
+    calculateImpactColor(response.data);
     console.log(response.data)
     this.setState({ apps: response.data });
-  };
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   render() {
     return (
       <AppContext.Provider value={this.state}>

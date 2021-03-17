@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/home.css";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
+import convertToColor from "../util/ImpactToColorConverter"
 import Country from "./Country";
 
 class Application extends Component {
@@ -9,6 +10,7 @@ class Application extends Component {
     super(props);
     this.state = {
       isVisible: false,
+      color:convertToColor(props.app.impactStatus)
     };
   }
   changeVisibility = () => {
@@ -17,8 +19,6 @@ class Application extends Component {
 
   render() {
     const { appStyle, app } = this.props;
-    const color = "success";
-
     const headerId = "headerId"+app.id;
     const dataId = "dataId"+app.name+app.id;
 
@@ -32,7 +32,7 @@ class Application extends Component {
               onClick={this.changeVisibility}
               href={`#${dataId}`}
             >
-              <div className={`btn btn-outline-${color} btn-block`}>
+              <div className={`btn btn-outline-${this.state.color} btn-block`}>
                 <ul className="nav justify-content-between">
                   <li className="nav-item font-weight-bold">{app.name}</li>
                   <li className="nav-item">
@@ -48,10 +48,10 @@ class Application extends Component {
 
             <div
               id={dataId}
-              className="collapse hide"
+              className={app.impactStatus === 'ZERO' ? 'collapse hide' : 'collapse show'}
               data-parent={`#${headerId}`}
             >
-              <div className={`card-body border border-${color}`}>
+              <div className={`card-body border border-${this.state.color} rounded-bottom pb-2`}>
                 <div className="row">
                   {app.countries &&
                     app.countries.map((country) => {

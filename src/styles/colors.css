@@ -10,3 +10,28 @@
 .text-orange{
   color:#ff8c00;
 }
+.btn-outline-orange {
+  color: #ff8c00;
+  border-color: #ff8c00;
+}
+.btn-outline-orange:hover {
+  color: #FFF;
+  border-color: #ff8c00;
+  background-color: #ff8c00;
+
+}
+.btn-outline-yellow {
+  color: #FFD700;
+  border-color: #FFD700;
+}
+.btn-outline-yellow:hover {
+  color: #FFF;
+  border-color: #FFD700;
+  background-color: #FFD700;
+}
+.border-orange{
+  border-color: #ff8c00 !important;
+}
+.border-yellow{
+  border-color: #FFD700 !important;
+}

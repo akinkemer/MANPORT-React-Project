@@ -1,11 +1,10 @@
 import React from "react";
-import "../styles/colors.css"
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 export default function LastIssues() {
   return (
     <div className="card border rounded shadow mb-3">
-      <div className="card-header py-2">Last Issues</div>
+      <div className="card-header py-1">Last Issues</div>
 
       <div className="card-body py-2">
         <div className="d-inline-flex">

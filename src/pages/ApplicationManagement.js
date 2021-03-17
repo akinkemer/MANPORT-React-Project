@@ -17,7 +17,7 @@ class ApplicationManagement extends Component {
             <div className="container">
               <div className="row mb-3">
                 <div className="col-md-8">
-                  <h6 className="display-4">Application Management</h6>
+                  <h6 className="display-5">Application Management</h6>
                 </div>
                 <div className="col-md-2">
                   <Link to="/" className="btn btn-success btn-block mt-4">
@@ -68,7 +68,7 @@ class ApplicationManagement extends Component {
                               <tr key={app.id}>
                                 <td>{app.name}</td>
                                 <td>{app.businessArea}</td>
-                                <td>5</td>
+                                <td>{app.countries.length }</td>
                                 <td>
                                   {app.lineStopRisk ? (
                                     <GoCheck color="red" size="1.5em" />
