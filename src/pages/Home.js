@@ -5,9 +5,11 @@ import { VscWarning } from "react-icons/vsc";
 import { VscTools } from "react-icons/vsc";
 import { VscRemoteExplorer } from "react-icons/vsc";
 import { VscLink } from "react-icons/vsc";
+import { Animate } from "react-simple-animate";
 
 export default function Home() {
   return (
+    <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
     <div className="container text-center">
       <div className="row mb-4 m-2">
       <div className="col-md-4 grow">
@@ -37,6 +39,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-    </div>
+      </div>
+      </Animate>
   );
 }

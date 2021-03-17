@@ -4,6 +4,7 @@ import "../styles/colors.css"
 import Application from "../component/Application";
 import LastIssues from "../component/LastIssues";
 import AppContext from "../context/AppContext";
+import { Animate } from "react-simple-animate";
 class MonitoringDashboard extends Component {
   render() {
     return (
@@ -11,6 +12,7 @@ class MonitoringDashboard extends Component {
         {(value) => {
           const { apps } = value;
           return (
+            <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }} >
             <div className="container">
               <div className="row">
                 <div className="col-md-4 text-center my-auto">
@@ -22,7 +24,8 @@ class MonitoringDashboard extends Component {
                 <div className="col-md-6">
                   <LastIssues />
                 </div>
-              </div>
+                </div>
+                <hr className="mb-4"/>
               <div className="row">
                 {apps &&
                   apps.map((app) => {
@@ -33,7 +36,8 @@ class MonitoringDashboard extends Component {
                     );
                   })}
               </div>
-            </div>
+              </div>
+              </Animate>
           );
         }}
       </AppContext.Consumer>

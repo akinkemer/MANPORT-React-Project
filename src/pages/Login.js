@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Animate } from "react-simple-animate";
 
 export default class Login extends Component {
   render() {
     return (
+      <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
       <div className="container">
         <h2 className="text-center">Login</h2>
         <hr/>
@@ -49,7 +51,8 @@ export default class Login extends Component {
             </form>
           </div>
         </div>
-      </div>
+        </div>
+        </Animate>
     );
   }
 }

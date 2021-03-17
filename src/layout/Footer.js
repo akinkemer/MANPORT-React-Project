@@ -40,11 +40,11 @@ function Footer() {
             </ul>
           </div>
           <div
-            className="col-12 text-center p-3 mt-2"
+            className="col-12 text-center p-3 mt-2 font-weight-bold"
             style={{ backgroundColor: "rgba(0,0,0,0.1)" }}
           >
             © {new Date().getFullYear()} Copyright:
-            <Link to="/home" className="text-dark">
+            <Link to="/home" className="mx-1 text-dark font-weight-bold">
               <span>MANPORT</span>
             </Link>
           </div>

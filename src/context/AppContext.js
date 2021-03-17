@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import calculateImpactColor from "../util/ImpactColorCalculator";
+import sortAppsByImpactStatus from "../util/SortByImpactStatus";
 import axiosInstance,{ applications } from "../api/RestPathVariables";
 
 const AppContext = React.createContext();
@@ -42,7 +43,7 @@ export class AppProvider extends Component {
   getData =async () => {
     const response = await axiosInstance.get(applications);
     calculateImpactColor(response.data);
-    console.log(response.data)
+    sortAppsByImpactStatus(response.data);
     this.setState({ apps: response.data });
   }
   componentWillUnmount() {
