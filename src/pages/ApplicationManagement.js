@@ -8,7 +8,19 @@ import { FiEdit } from "react-icons/fi";
 import { GoCheck, GoX } from "react-icons/go";
 import { Animate } from "react-simple-animate";
 
+import { Button,Modal } from 'react-bootstrap';
+
 class ApplicationManagement extends Component {
+  state = {
+    addNewAppModalShow: false
+  };
+
+  handleShow = () => {
+    this.setState({ addNewAppModalShow: true });
+  };
+  handleHide = () => {
+    this.setState({ addNewAppModalShow: false });
+  };
   render() {
     return (
       <AppContext.Consumer>
@@ -22,9 +34,13 @@ class ApplicationManagement extends Component {
                     <h6 className="display-5">Application Management</h6>
                   </div>
                   <div className="col-md-2">
-                    <Link to="/" className="btn btn-success btn-block mt-4">
+                    <button
+                      type="button"
+                      className="btn btn-success btn-block mt-4"
+                      onClick={this.handleShow}
+                    >
                       Add New App
-                    </Link>
+                    </button>
                   </div>
                   <div className="col-md-2">
                     <Link to="/" className="btn btn-success btn-block mt-4">
@@ -32,7 +48,7 @@ class ApplicationManagement extends Component {
                     </Link>
                   </div>
                 </div>
-                <hr className="mb-4"/>
+                <hr className="mb-4" />
                 <div className="row">
                   <div className="col-md-12">
                     <div id="collapse1">
@@ -99,6 +115,26 @@ class ApplicationManagement extends Component {
                   </div>
                 </div>
               </div>
+              <Modal
+                show={this.state.addNewAppModalShow}
+                onHide={this.handleHide}
+                backdrop="static"
+                keyboard={false}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title>Modal title</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  I will not close if you click outside me. Don't even try to
+                  press escape key.
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={this.handleHide}>
+                    Close
+                  </Button>
+                  <Button variant="primary" onClick={}>Understood</Button>
+                </Modal.Footer>
+              </Modal>
             </Animate>
           );
         }}
