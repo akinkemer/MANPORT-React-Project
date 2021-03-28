@@ -21,7 +21,7 @@ export default class LastIssues extends React.Component {
             <div className="card border rounded shadow mb-3">
               <div className="card-header py-1">Last Issues</div>
               <div className="card-body py-2">
-              {lastThreeIssues.length !==0  && lastThreeIssues.map((issue, index) => {
+              {lastThreeIssues.length ===0  && lastThreeIssues.map((issue, index) => {
                   return (
                     <div className="d-inline-flex" key={index}>
                       <h6 className="p-1 text-monospace my-auto">

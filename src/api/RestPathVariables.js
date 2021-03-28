@@ -7,4 +7,5 @@ const pathBody = `${manportHostAddress}/${apiVersion}`;
 const axiosInstance = axios.create({ baseURL: pathBody });
 
 export const applications = "/applications";
+export const createAppViewModel = "/create-app-view-model";
 export default axiosInstance;

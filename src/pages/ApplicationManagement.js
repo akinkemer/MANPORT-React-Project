@@ -8,18 +8,21 @@ import { FiEdit } from "react-icons/fi";
 import { GoCheck, GoX } from "react-icons/go";
 import { Animate } from "react-simple-animate";
 
-import { Button,Modal } from 'react-bootstrap';
+import CreateAppModal from "../component/CreateAppModal";
 
 class ApplicationManagement extends Component {
   state = {
-    addNewAppModalShow: false
+    showCreateAppModal: false,
   };
-
-  handleShow = () => {
-    this.setState({ addNewAppModalShow: true });
+  setTrueShowCreateAppModal = () => {
+    this.setState({
+      showCreateAppModal: true,
+    });
   };
-  handleHide = () => {
-    this.setState({ addNewAppModalShow: false });
+  setFalseShowCreateAppModal = () => {
+    this.setState({
+      showCreateAppModal: false,
+    });
   };
   render() {
     return (
@@ -37,7 +40,7 @@ class ApplicationManagement extends Component {
                     <button
                       type="button"
                       className="btn btn-success btn-block mt-4"
-                      onClick={this.handleShow}
+                      onClick={() => this.setTrueShowCreateAppModal()}
                     >
                       Add New App
                     </button>
@@ -115,26 +118,10 @@ class ApplicationManagement extends Component {
                   </div>
                 </div>
               </div>
-              <Modal
-                show={this.state.addNewAppModalShow}
-                onHide={this.handleHide}
-                backdrop="static"
-                keyboard={false}
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title>Modal title</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  I will not close if you click outside me. Don't even try to
-                  press escape key.
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={this.handleHide}>
-                    Close
-                  </Button>
-                  <Button variant="primary" onClick={}>Understood</Button>
-                </Modal.Footer>
-              </Modal>
+              <CreateAppModal
+                show={this.state.showCreateAppModal}
+                onClose={() => this.setFalseShowCreateAppModal()}
+              />
             </Animate>
           );
         }}

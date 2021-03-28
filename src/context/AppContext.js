@@ -46,10 +46,8 @@ export class AppProvider extends Component {
     const response = await axiosInstance.get(applications);
     calculateImpactColor(response.data);
     sortAppsByImpactStatus(response.data);
-    console.log(response.data)
     this.setState({ apps: response.data });
     this.setState({ lastThreeIssues: getLastThreeIssues(response.data) });
-    console.log(this.state.lastThreeIssues)
   }
   componentWillUnmount() {
     clearInterval(this.interval);
